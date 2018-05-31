@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "User Index";
+}
+
+<h2>User Registration</h2>
+<h3>Fill out this form to start receiving monthly beans</h3>
+<hr />
+
+<form class="form-horizontal" action="User/Register" method="get" onsubmit="return ValidateEmail() && CheckCups() && CheckStrength()">
+
+    <div class="form-group">
+        <label for="First Name" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="firstName" id="firstname" class="form-control" placeholder="First Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="Last Name" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="lastName" class="form-control" placeholder="Last Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="Email" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="email" id="email" class="form-control" placeholder="Email" />
+        <span id="EmailWarning"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Number" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="phoneNumber" id="number" class="form-control" placeholder="Phone Number" />
+    </div>
+
+    <div class="form-group">
+        <label for="Password" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="password" class="form-control" placeholder="Password" />
+    </div>
+
+    <div class="form-group">
+        <label for="CupsDay" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="avgCupsPerDay" id="cups" class="form-control" placeholder="Avg cups per day" />
+        <span id="CupsWarning"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Strength" class="col-sm-6 control-label"></label>
+        <div class="col-sm-6"></div>
+        <input type="text" name="desiredStrength" id="strength" class="form-control" placeholder="Desired Strength" />
+        <span id="StrengthWarning"></span>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="text-align:center">
+
+            <input type="submit" class="btn btn-primary" value="Register" />
+            <!-- <input type="reset" class="btn btn-warning" value="Reset Form" />-->
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+</form>
+
+<script>
+
+    function ValidateEmail() {
+        //alert("ValidateEmail running");
+        if (/^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value)) {
+            return true;
+        }
+        document.getElementById("EmailWarning").innerHTML =
+            "<b>" + "You have entered an invalid email address </b>";
+        return false;
+    }
+
+
+    function CheckCups() {
+       //alert("CheckCups running");
+        var cups = document.getElementById("cups").value;
+        if (cups > 5 || cups < 1) {
+            document.getElementById("CupsWarning").innerHTML =
+                "<b>" + "Choose 1-5 </b>";
+            return false;
+        }
+        return true;
+    }
+
+    function CheckStrength() {
+        //alert("CheckStrength running")
+        var strength = document.getElementById("strength").value;
+        if (strength === "light" || strength === "medium" || strength === "bold") {
+            return true;
+        }
+        document.getElementById("StrengthWarning").innerHTML =
+            "<b>" + "choose light, medium, or bold</b>";
+        return false;
+    }
+
+    function Alert() {
+        alert("This got called");
+    }
+
+
+</script>
+
+
+
+

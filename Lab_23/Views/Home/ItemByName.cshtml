@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "ItemByName";
+}
+
+<h2>Item Lookup</h2>
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+
+        @for (int i = 0; i < ViewBag.Item.Count; i++)
+        {
+
+
+        <tr>
+
+            <td>@ViewBag.Item[i].Name</td>
+            <td>@ViewBag.Item[i].Description</td>
+            <td>@ViewBag.Item[i].Price</td>
+            <td><img src=~/Content/@ViewBag.Item[i].Image></td>
+
+        </tr>
+        }
+
+    </table>
+
+
+
+
+
+
+
+
