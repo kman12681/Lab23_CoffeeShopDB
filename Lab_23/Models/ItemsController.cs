@@ -103,26 +103,26 @@ namespace Lab_23.Models
             return View(item);
         }
 
-        // GET: Items/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Item item = dao.GetItem((int)id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Item = item;
-            return View(item);
-        }
+        //GET: Items/Delete/5
+        //public actionresult delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new httpstatuscoderesult(httpstatuscode.badrequest);
+        //    }
+        //    item item = dao.getitem((int)id);
+        //    if (item == null)
+        //    {
+        //        return httpnotfound();
+        //    }
+        //    viewbag.item = item;
+        //    return view(item);
+        //}
 
         // POST: Items/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
         {
             dao.DeleteItem(id);            
             return RedirectToAction("Index");

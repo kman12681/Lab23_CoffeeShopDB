@@ -22,10 +22,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
-        </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>*@
+        </th>     
         <th></th>
     </tr>
 
@@ -47,7 +44,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-primary" })              
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-primary", @onclick="return ConfirmDelete()" })    
+                              
+             
 
             </td>
         </tr>
@@ -55,12 +54,15 @@
 
 </table>
 
-<script type="text/javascript">
-    ConfirmDelete()
+<script>
+
+    function ConfirmDelete()
     {
-        alert("Confirm Delete running")
+        
         if (!confirm("Are you sure you want to delete this item?")) {
             return false;
         }
+       
     }
+    
 </script>
