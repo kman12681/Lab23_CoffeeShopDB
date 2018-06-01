@@ -10,16 +10,17 @@
 namespace Lab_23.Models
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;      
+
+   
     public partial class User
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
         public string phoneNumber { get; set; }
-        public string password { get; set; }
+        public string password { get; set; }        
         public int avgCupsPerDay { get; set; }
         public string desiredStrength { get; set; }
-    }
+    } 
 }

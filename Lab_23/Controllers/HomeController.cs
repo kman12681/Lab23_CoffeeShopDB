@@ -42,7 +42,7 @@ namespace Lab_23.Controllers
                 {
                     newItems.Add(i);
                 }
-            }            
+            }
 
             ViewBag.Item = newItems.ToList();
 

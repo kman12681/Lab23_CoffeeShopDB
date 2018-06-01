@@ -25,6 +25,8 @@ namespace Lab_23
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-yeti.css",
                       "~/Content/site.css"));
+
+            
         }
     }
 }

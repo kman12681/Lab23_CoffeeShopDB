@@ -15,7 +15,7 @@ namespace Lab_23.Controllers
         {
             return View();
         }
-        //ActionResult About(Item data) from EF demo today, Users, not items, though.
+        
         public ActionResult Register(User data)
         {
             CoffeeEntities orm = new CoffeeEntities();
@@ -42,24 +42,6 @@ namespace Lab_23.Controllers
             return View();
         }
 
-        // old code before connected to database
-
-        //    string firstName = "",
-        //    string lastName = "",
-        //    string email = "",
-        //    int number = 0,
-        //    string password = "",
-        //    int cupsDay = 0,
-        //    string strength = "")
-        //{
-        //    ViewBag.FirstName = firstName;
-        //    ViewBag.LastName = lastName;
-        //    ViewBag.Email = email;
-        //    ViewBag.Number = number;
-        //    ViewBag.Password = password;
-        //    ViewBag.CupsDay = cupsDay;
-        //    ViewBag.Strength = strength;
-        //    return View();
-        //}
+        
     }
 }
