@@ -10,7 +10,8 @@ using Lab_23.Models;
 namespace Lab_23.Controllers
 {
     public class HomeController : Controller
-    {
+    {        
+
         public ActionResult Index()
         {
             CoffeeEntities orm = new CoffeeEntities();
@@ -30,24 +31,26 @@ namespace Lab_23.Controllers
             return View();
         }
 
-        public ActionResult ItemByName(string byName)
-        {
-            CoffeeEntities orm = new CoffeeEntities();
-            List<Item> itemList = orm.Items.ToList();
-            List<Item> newItems = new List<Item>();
+        //public ActionResult ItemByName(string byName)
+        //{
+        //    CoffeeEntities orm = new CoffeeEntities();
+        //    List<Item> itemList = orm.Items.ToList();
+        //    List<Item> newItems = new List<Item>();
 
-            foreach (Item i in itemList)
-            {
-                if (i.Name == byName)
-                {
-                    newItems.Add(i);
-                }
-            }
+        //    foreach (Item i in itemList)
+        //    {
+        //        if (i.Name == byName)
+        //        {
+        //            newItems.Add(i);
+        //        }
+        //    }
 
-            ViewBag.Item = newItems.ToList();
+        //    ViewBag.Item = newItems.ToList();
 
-            return View();
+        //    return View();
 
-        }
+        //}
+       
+        
     }
 }

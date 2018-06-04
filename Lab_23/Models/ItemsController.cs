@@ -128,6 +128,68 @@ namespace Lab_23.Models
             return RedirectToAction("Index");
         }
 
+        public ActionResult ItemList()
+        {
+            dao.GetItemList();
+            List<Item> items = dao.GetItemList();           
+            ViewBag.Items = items;
+
+            //CoffeeEntities db = new CoffeeEntities();
+            //List<Item> items = db.Items.ToList();
+            //to build dropdown list
+            //ViewBag.Statuses = db.Statuses.ToList();
+
+            return View();
+        }
+
+        public ActionResult Cart(int id)
+        {
+            // LibraryEntities db = new LibraryEntities();
+            //check if the Cart object already exists
+            if (Session["Cart"] == null)
+            {
+                //if it doesn't, make a new list of items
+                List<Item> cart = new List<Item>();
+                //add this item to it
+                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());
+                //add the list to the session
+                Session.Add("Cart", cart);
+            }
+            else
+            {
+                //if it does exist, get the list
+                List<Item> cart = (List<Item>)(Session["Cart"]);
+                //add this item to it
+                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());
+                //(add it back to the session)
+                //Session["Cart"] = cart;
+            }
+            return View();
+        }
+
+        //Sort Items in Store
+        public ActionResult ItemListSorted(string column)
+        {
+            //CoffeeEntities db = new CoffeeEntities();
+            // LINQ Query
+            if (column == "Name")
+            {
+                ViewBag.Items = (from i in dao.GetItemList() orderby i.Name select i).ToList();
+            }
+            else if (column == "Description")
+            {
+                ViewBag.Items = (from i in dao.GetItemList() orderby i.Description select i).ToList();
+            }
+            else if (column == "Price")
+            {
+                ViewBag.Items = (from i in dao.GetItemList() orderby i.Price select i).ToList();
+                                
+            }         
+                      
+
+            return View("ItemList");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

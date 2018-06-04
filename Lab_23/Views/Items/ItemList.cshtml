@@ -1,0 +1,37 @@
+﻿@using Lab_23.Models;
+@{
+    ViewBag.Title = "Store";
+}
+
+
+@Html.ActionLink("Show Cart", "Cart")
+
+<table class="table table-bordered">
+    <tr>
+
+        <th><a href="~/Items/ItemListSorted?column=Name">Name</a></th>
+        <th><a href="~/Items/ItemListSorted?column=Description">Description</a></th>
+        <th><a href="~/Items/ItemListSorted?column=Price">Price</a></th>
+        <th>Image</th>
+        <th>Shopping</th>
+
+        @foreach (Item i in ViewBag.Items)
+        {
+
+
+        <tr>
+
+            <td>@i.Name</td>
+            <td>@i.Description</td>
+            <td>@i.Price</td>
+            <td><img src="~/Content/@i.Image" style="height: 100px; width: auto;"></td>
+            <td>
+                <a href="~/Items/Cart?id=@i.ID"
+                   class="btn btn-primary">Add To Cart</a>
+            </td>
+
+        </tr>
+    }
+
+    </table>
+
