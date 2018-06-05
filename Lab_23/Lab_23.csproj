@@ -195,6 +195,9 @@
     <Content Include="Content\bootstrap-yeti.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cart.png" />
+    <Content Include="Content\cartplus.png" />
+    <Content Include="Content\carttransparent.jpg" />
     <Content Include="Content\coffeshop.jpg" />
     <Content Include="Content\holiday.jpg" />
     <Content Include="Content\mug.jpg" />
@@ -251,7 +254,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ItemByName.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Items\Create.cshtml" />

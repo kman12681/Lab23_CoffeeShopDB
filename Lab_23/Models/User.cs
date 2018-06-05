@@ -10,17 +10,23 @@
 namespace Lab_23.Models
 {
     using System;
-    using System.Collections.Generic;      
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   
     public partial class User
     {
+        [Required(ErrorMessage = "A first name is required")]
         public string firstName { get; set; }
-        public string lastName { get; set; }
+        [Required(ErrorMessage = "A last name is required")]
+        public string lastName { get; set; }        
         public string email { get; set; }
         public string phoneNumber { get; set; }
-        public string password { get; set; }        
+        public string password { get; set; }
+        [Range(1, 5, ErrorMessage = "Must choose 1-5")]
         public int avgCupsPerDay { get; set; }
+        [Required(ErrorMessage = "Must choose, 'light', 'medium', or 'bold'")]
         public string desiredStrength { get; set; }
-    } 
+        
+    }
+    
 }

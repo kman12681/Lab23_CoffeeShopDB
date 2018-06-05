@@ -142,9 +142,14 @@ namespace Lab_23.Models
             return View();
         }
 
+        public ActionResult ViewCart()
+        {
+            return View("Cart");
+        }       
+
         public ActionResult Cart(int id)
         {
-            // LibraryEntities db = new LibraryEntities();
+            
             //check if the Cart object already exists
             if (Session["Cart"] == null)
             {
@@ -170,7 +175,7 @@ namespace Lab_23.Models
         //Sort Items in Store
         public ActionResult ItemListSorted(string column)
         {
-            //CoffeeEntities db = new CoffeeEntities();
+            
             // LINQ Query
             if (column == "Name")
             {
@@ -188,6 +193,16 @@ namespace Lab_23.Models
                       
 
             return View("ItemList");
+        }
+
+        public ActionResult ItemListByDescription(string description, string name)
+        {
+                      
+            List<Item> items = (from i in dao.GetItemList() where i.Description.Contains(description) select i).ToList();
+            ViewBag.Items = items;           
+
+            return View("ItemList");
+
         }
 
         protected override void Dispose(bool disposing)

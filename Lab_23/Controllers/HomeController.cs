@@ -30,27 +30,7 @@ namespace Lab_23.Controllers
         {
             return View();
         }
-
-        //public ActionResult ItemByName(string byName)
-        //{
-        //    CoffeeEntities orm = new CoffeeEntities();
-        //    List<Item> itemList = orm.Items.ToList();
-        //    List<Item> newItems = new List<Item>();
-
-        //    foreach (Item i in itemList)
-        //    {
-        //        if (i.Name == byName)
-        //        {
-        //            newItems.Add(i);
-        //        }
-        //    }
-
-        //    ViewBag.Item = newItems.ToList();
-
-        //    return View();
-
-        //}
-       
+        
         
     }
 }
