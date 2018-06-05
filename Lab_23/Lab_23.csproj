@@ -180,7 +180,7 @@
       <DependentUpon>Coffee.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemDAO.cs" />
-    <Compile Include="Models\ItemsController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Coffee.tt</DependentUpon>
     </Compile>
